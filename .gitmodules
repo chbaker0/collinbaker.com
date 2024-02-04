@@ -1,3 +1,6 @@
 [submodule "third_party/zola"]
 	path = third_party/zola
 	url = https://github.com/getzola/zola.git
+[submodule "third_party/abridge"]
+	path = third_party/abridge
+	url = https://github.com/Jieiku/abridge.git
