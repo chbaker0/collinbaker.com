@@ -1,0 +1,2 @@
+[alias]
+gen = "run --manifest-path third_party/zola/Cargo.toml --release -- --root zola-site build --output-dir public --force"
