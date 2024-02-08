@@ -1,0 +1,19 @@
+name: check
+on: [push]
+
+jobs:
+  check:
+    name: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - name: Install zola
+        run: sudo snap install --edge zola
+      - name: Zola check
+        run: zola --root zola-site check
+      - name: Check cargo package
+        run: cargo check --all-features
+      - name: Check formatting
+        run: cargo fmt --check
