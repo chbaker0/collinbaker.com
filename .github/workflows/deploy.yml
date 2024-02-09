@@ -24,7 +24,6 @@ jobs:
         with:
           switches: -avzr --delete
           path: public
-          remote_path: "~"
           remote_host: collinbaker.com
           remote_user: ${{ secrets.SSH_USER }}
           remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
