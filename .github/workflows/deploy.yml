@@ -7,9 +7,21 @@ jobs:
   check:
     name: deploy
     runs-on: ubuntu-latest
+    concurrency:
+      group: prod
+      cancel-in-progress: true
+    environment: 
+      name: prod
+      url: https://collinbaker.com
     steps:
       - uses: actions/checkout@v4
       - name: Install zola
         run: sudo snap install --edge zola
       - name: Zola build
         run: zola --root zola-site build -o public
+      - name: Deploy web content to server
+        uses: Burnett01/rsync-deployments@6.0.0
+        path: public
+        remote_path: "~/www"
+        remote_user: ${{ secrets.SSH_USER }}
+        remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
