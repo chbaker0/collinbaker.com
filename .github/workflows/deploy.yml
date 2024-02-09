@@ -21,7 +21,7 @@ jobs:
         run: zola --root zola-site build -o public
       - name: Deploy web content to server
         uses: Burnett01/rsync-deployments@6.0.0
-        path: public
-        remote_path: "~/www"
-        remote_user: ${{ secrets.SSH_USER }}
-        remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          path: public
+          remote_path: "~/www"
+          remote_user: ${{ secrets.SSH_USER }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
