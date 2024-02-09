@@ -24,5 +24,6 @@ jobs:
         with:
           path: public
           remote_path: "~/www"
+          remote_host: collinbaker.com
           remote_user: ${{ secrets.SSH_USER }}
           remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
